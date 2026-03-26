@@ -13,31 +13,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.1
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
-      - name: Enable Corepack
-        run: corepack enable
-
       - name: Install dependencies
-        run: corepack pnpm install --frozen-lockfile=false
+        run: pnpm install --frozen-lockfile=false
 
       - name: Install Playwright Chromium
-        run: corepack pnpm exec playwright install chromium
+        run: pnpm exec playwright install chromium
 
       - name: Lint
-        run: corepack pnpm lint
+        run: pnpm lint
 
       - name: Typecheck
-        run: corepack pnpm typecheck
+        run: pnpm typecheck
 
       - name: Unit tests
-        run: corepack pnpm test
+        run: pnpm test
 
       - name: Build
-        run: corepack pnpm build
+        run: pnpm build
 
       - name: Managed smoke test
-        run: corepack pnpm smoke:managed
+        run: pnpm smoke:managed
