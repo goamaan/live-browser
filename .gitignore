@@ -1,6 +1,7 @@
 node_modules/
 dist/
 coverage/
+*.tsbuildinfo
 .turbo/
 .DS_Store
 *.log
@@ -9,4 +10,3 @@ coverage/
 playwright-report/
 test-results/
 runtime/
-
