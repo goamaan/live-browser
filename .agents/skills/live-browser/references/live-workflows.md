@@ -1,10 +1,10 @@
 # Live workflows
 
-## Install or run once
+## Install globally
 
 ```text
-bunx live-browser --help
-npx live-browser --help
+bun i -g live-browser
+npm i -g live-browser
 ```
 
 ## Attach to a logged-in Chrome session

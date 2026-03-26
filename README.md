@@ -7,14 +7,7 @@ It can attach to an already-open Chrome session over raw CDP, keep page aliases 
 ## Install
 
 ```bash
-bunx live-browser --help
-npx live-browser --help
-```
-
-For a persistent install:
-
-```bash
-bun add -g live-browser
+bun i -g live-browser
 npm i -g live-browser
 ```
 

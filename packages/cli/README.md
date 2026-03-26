@@ -5,14 +5,7 @@ CLI package for `live-browser`, including the installable `live-browser` skill p
 ## Install
 
 ```bash
-bunx live-browser --help
-npx live-browser --help
-```
-
-For a persistent install:
-
-```bash
-bun add -g live-browser
+bun i -g live-browser
 npm i -g live-browser
 ```
 

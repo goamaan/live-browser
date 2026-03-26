@@ -2,14 +2,14 @@
 name: live-browser
 description: Live-first Chrome/CDP browser automation with managed Chromium fallback. Use when an agent needs to inspect pages, attach to an already-open logged-in Chrome tab, resolve and warm tabs by alias, capture snapshots/screenshots/HTML, run browser actions, recover from daemon or browser disconnects, or install and use the live-browser CLI skill.
 license: MIT
-compatibility: Use Bun 1.3.9+ for repo development, or Node.js 22+ when consuming the packaged CLI via bunx, npx, or a global install. Chrome remote debugging is required for live attach workflows.
+compatibility: Use Bun 1.3.9+ for repo development, or Node.js 22+ when consuming the packaged CLI after a global install. Chrome remote debugging is required for live attach workflows.
 ---
 
 # Live Browser
 
 Use `live-browser` as the primary browser automation tool for live Chrome work.
 
-Prefer installed-binary usage such as `live-browser ...`, `bunx live-browser ...`, or `npx live-browser ...` in consumer-facing workflows.
+Prefer installed-binary usage such as `live-browser ...` in consumer-facing workflows after a global install.
 
 ## Workflow
 
