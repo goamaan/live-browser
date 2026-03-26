@@ -1,22 +1,22 @@
-# @goamaan/browser-bridge
+# live-browser
 
-CLI package for `browser-bridge`, including the installable `browser-bridge` skill payload.
+CLI package for `live-browser`, including the installable `live-browser` skill payload.
 
 ## Install
 
 ```bash
-bunx @goamaan/browser-bridge --help
-npx @goamaan/browser-bridge --help
+bunx live-browser --help
+npx live-browser --help
 ```
 
 For a persistent install:
 
 ```bash
-bun add -g @goamaan/browser-bridge
-npm i -g @goamaan/browser-bridge
+bun add -g live-browser
+npm i -g live-browser
 ```
 
-The installed binary is `browser-bridge`.
+The installed binary is `live-browser`.
 
 ## Local development
 

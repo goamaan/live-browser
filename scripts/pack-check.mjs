@@ -3,7 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { packPackage, publicPackages, run } from './package-utils.mjs';
 
-const tmpDir = mkdtempSync(path.join(os.tmpdir(), 'browser-bridge-pack-'));
+const tmpDir = mkdtempSync(path.join(os.tmpdir(), 'live-browser-pack-'));
 
 try {
   for (const pkg of publicPackages) {

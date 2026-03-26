@@ -5,12 +5,12 @@ import { cp, mkdir, rm } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { Command, CommanderError } from 'commander';
-import { BridgeDaemonClient, BridgeError, ensureDaemonRunning, toBridgeFault } from '@goamaan/browser-bridge-core';
-import { connect, type BrowserBridgeClient } from '@goamaan/browser-bridge-sdk';
+import { BridgeDaemonClient, BridgeError, ensureDaemonRunning, toBridgeFault } from 'live-browser-internal-core';
+import { connect, type BrowserBridgeClient } from 'live-browser-internal-sdk';
 
 const program = new Command();
 
-program.name('browser-bridge').description('Live-first AI browser bridge');
+program.name('live-browser').description('Live-first browser automation');
 
 interface BrowserOption {
   browser: string;
@@ -107,7 +107,7 @@ async function withClient<T>(run: (client: BrowserBridgeClient) => Promise<T>, o
 
 async function runExternalScript(scriptPath: string): Promise<void> {
   const resolvedScriptPath = path.resolve(scriptPath);
-  const sdkModuleUrl = new URL('../../sdk/dist/index.js', import.meta.url).href;
+  const sdkModuleUrl = new URL('./sdk.js', import.meta.url).href;
   const runner = [
     'import { pathToFileURL } from "node:url";',
     'const { connect } = await import(process.env.BROWSER_BRIDGE_SDK_MODULE_URL);',
@@ -163,7 +163,7 @@ function parseFiniteNumber(name: string, raw: string): number {
 }
 
 function packagedSkillPath(): string {
-  return fileURLToPath(new URL('../skill/browser-bridge', import.meta.url));
+  return fileURLToPath(new URL('../skill/live-browser', import.meta.url));
 }
 
 function globalSkillRoot(): string {
@@ -179,7 +179,7 @@ function projectSkillRoot(projectOption: string | boolean | undefined): string {
 async function installSkill(options: SkillInstallOptions): Promise<void> {
   const source = packagedSkillPath();
   const targetRoot = options.project ? projectSkillRoot(options.project) : globalSkillRoot();
-  const target = path.join(targetRoot, 'browser-bridge');
+  const target = path.join(targetRoot, 'live-browser');
   await mkdir(targetRoot, { recursive: true });
   await rm(target, { recursive: true, force: true });
   await cp(source, target, { recursive: true });
@@ -495,7 +495,7 @@ program
     }
   });
 
-const skillCommand = program.command('skill').description('Work with the packaged browser-bridge skill');
+const skillCommand = program.command('skill').description('Work with the packaged live-browser skill');
 
 skillCommand
   .command('install')

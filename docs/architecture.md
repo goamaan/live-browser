@@ -2,7 +2,7 @@
 
 ## Core ideas
 
-`browser-bridge` is built around a single principle: live browser automation should stay lightweight even when it is agent-friendly.
+`live-browser` is built around a single principle: live browser automation should stay lightweight even when it is agent-friendly.
 
 That leads to four choices:
 
@@ -42,7 +42,7 @@ IPC is newline-delimited JSON over a local named pipe or Unix socket.
 
 ## Agent-focused contracts
 
-`browser-bridge` is intentionally biased toward AI clients, so the primary contracts are structured:
+`live-browser` is intentionally biased toward AI clients, so the primary contracts are structured:
 
 - browser summaries for connection state and source metadata
 - page summaries with stable `browserId`, `targetId`, and optional aliases

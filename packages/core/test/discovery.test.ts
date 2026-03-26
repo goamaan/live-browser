@@ -81,7 +81,7 @@ describe('resolveLiveBrowserEndpoint', () => {
   });
 
   it('parses an explicit DevToolsActivePort file', async () => {
-    const tempDir = mkdtempSync(path.join(os.tmpdir(), 'browser-bridge-test-'));
+    const tempDir = mkdtempSync(path.join(os.tmpdir(), 'live-browser-test-'));
     const portFile = path.join(tempDir, 'DevToolsActivePort');
     writeFileSync(portFile, '9333\n/devtools/browser/from-port-file\n', 'utf8');
 

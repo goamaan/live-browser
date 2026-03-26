@@ -239,8 +239,8 @@ export class BridgeDaemonServer {
           hint: 'Attach the browser again, or keep the persisted live-browser state file so the daemon can restore it.',
           diagnostics: { browserId },
           suggestedNextSteps: [
-            `Run browser-bridge browsers attach --browser-id ${browserId}`,
-            `Run browser-bridge doctor --browser ${browserId}`,
+            `Run live-browser browsers attach --browser-id ${browserId}`,
+            `Run live-browser doctor --browser ${browserId}`,
           ],
         });
       }
@@ -325,7 +325,7 @@ export class BridgeDaemonServer {
       },
       suggestedNextSteps: [
         'Bring Chrome to the foreground and dismiss any existing remote debugging prompt once.',
-        `Retry browser-bridge browsers attach --browser-id ${browserId} after the cooldown expires.`,
+        `Retry live-browser browsers attach --browser-id ${browserId} after the cooldown expires.`,
       ],
     });
   }

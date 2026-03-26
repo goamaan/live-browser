@@ -1,7 +1,5 @@
-# @goamaan/browser-bridge-core
+# live-browser-internal-core
 
-Core transport, daemon, page registry, and browser adapters for `browser-bridge`.
-
-Install with `bun add @goamaan/browser-bridge-core` or `npm i @goamaan/browser-bridge-core`.
+Internal transport, daemon, page registry, and browser adapter workspace package for `live-browser`.
 
 See the root project README for the full architecture and workflow docs.

@@ -1,5 +1,5 @@
-import type { PageSummary } from '@goamaan/browser-bridge-core';
-import type { BrowserBridgeClient } from '@goamaan/browser-bridge-sdk';
+import type { PageSummary } from 'live-browser-internal-core';
+import type { BrowserBridgeClient } from 'live-browser-internal-sdk';
 
 interface AliasTarget {
   alias: string;

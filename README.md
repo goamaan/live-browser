@@ -1,24 +1,24 @@
-# browser-bridge
+# live-browser
 
-`browser-bridge` is a live-first browser automation toolkit for AI agents.
+`live-browser` is a live-first browser automation toolkit for AI agents.
 
 It can attach to an already-open Chrome session over raw CDP, keep page aliases warm across commands, and fall back to managed Chromium when you want a clean browser instead of a live one.
 
 ## Install
 
 ```bash
-bunx @goamaan/browser-bridge --help
-npx @goamaan/browser-bridge --help
+bunx live-browser --help
+npx live-browser --help
 ```
 
 For a persistent install:
 
 ```bash
-bun add -g @goamaan/browser-bridge
-npm i -g @goamaan/browser-bridge
+bun add -g live-browser
+npm i -g live-browser
 ```
 
-The installed binary is `browser-bridge`.
+The installed binary is `live-browser`.
 
 ## Quick start
 
@@ -29,27 +29,26 @@ chrome.exe --remote-debugging-port=9222
 ```
 
 ```bash
-browser-bridge browsers attach --browser-id chrome
-browser-bridge pages list --browser chrome
-browser-bridge pages alias <targetId> app --browser chrome
-browser-bridge snapshot app --browser chrome
-browser-bridge screenshot app --browser chrome
+live-browser browsers attach --browser-id chrome
+live-browser pages list --browser chrome
+live-browser pages alias <targetId> app --browser chrome
+live-browser snapshot app --browser chrome
+live-browser screenshot app --browser chrome
 ```
 
 If you want a clean browser instead of your real Chrome session:
 
 ```bash
-browser-bridge browsers launch --browser-id managed --url https://example.com
-browser-bridge pages list --browser managed
-browser-bridge snapshot <targetId> --browser managed
+live-browser browsers launch --browser-id managed --url https://example.com
+live-browser pages list --browser managed
+live-browser snapshot <targetId> --browser managed
 ```
 
-## Why browser-bridge
+## Why live-browser
 
 - Raw CDP in live mode, so attach goes straight to Chrome instead of relying on Playwright `connectOverCDP`.
 - A long-lived daemon that keeps browser sessions, warmed pages, and aliases stable across commands.
 - JSON-first CLI responses and structured error envelopes that are easy for agents to consume.
-- A JS/TS SDK that mirrors the high-value part of a Playwright-style page API.
 - Managed Chromium fallback for isolated automation or CI smoke testing.
 
 ## Common commands
@@ -57,72 +56,54 @@ browser-bridge snapshot <targetId> --browser managed
 Inspect and resolve pages:
 
 ```bash
-browser-bridge doctor --browser chrome
-browser-bridge pages list --browser chrome
-browser-bridge pages resolve app --browser chrome
-browser-bridge html app --browser chrome
-browser-bridge evaluate app "document.title" --browser chrome
+live-browser doctor --browser chrome
+live-browser pages list --browser chrome
+live-browser pages resolve app --browser chrome
+live-browser html app --browser chrome
+live-browser evaluate app "document.title" --browser chrome
 ```
 
 Mutate pages:
 
 ```bash
-browser-bridge fill app "input[name='email']" "test@example.com" --browser chrome
-browser-bridge type app "input[name='email']" " more" --browser chrome
-browser-bridge insert-text app "already-focused text" --browser chrome
-browser-bridge click app "text=Submit" --browser chrome
-browser-bridge clickxy app 640 240 --browser chrome
-browser-bridge loadall app "text=Load more" --browser chrome
+live-browser fill app "input[name='email']" "test@example.com" --browser chrome
+live-browser type app "input[name='email']" " more" --browser chrome
+live-browser insert-text app "already-focused text" --browser chrome
+live-browser click app "text=Submit" --browser chrome
+live-browser clickxy app 640 240 --browser chrome
+live-browser loadall app "text=Load more" --browser chrome
 ```
 
 Manage browser sessions:
 
 ```bash
-browser-bridge browsers list
-browser-bridge browsers detach --browser-id chrome
-browser-bridge daemon status
-browser-bridge daemon stop
+live-browser browsers list
+live-browser browsers detach --browser-id chrome
+live-browser daemon status
+live-browser daemon stop
 ```
 
 For the full generated command reference, see [docs/cli.md](docs/cli.md).
 
-## SDK
-
-```ts
-import { connect } from '@goamaan/browser-bridge-sdk';
-
-const client = await connect();
-
-try {
-  await client.attachLive({ browserId: 'chrome' });
-  const pages = await client.pages('chrome');
-  const page = client.page(pages[0].targetId, 'chrome');
-  const snapshot = await page.snapshot();
-  console.log(snapshot.nodes.length);
-} finally {
-  await client.disconnect();
-}
-```
-
 ## Examples
 
-- [examples/alias-tabs.ts](examples/alias-tabs.ts): alias and warm a reusable set of tabs based on configurable URL prefixes
-- [examples/status.ts](examples/status.ts): fetch daemon status from the SDK
+- [examples/alias-tabs.ts](examples/alias-tabs.ts): repo-local example for aliasing and warming tabs in a workspace checkout
+- [examples/status.ts](examples/status.ts): repo-local example for fetching daemon status in a workspace checkout
 
 ## Skills
 
-The repository includes a standard Agent Skills skill at `.agents/skills/browser-bridge/` and packages a copy with the CLI.
+The repository includes a standard Agent Skills skill at `.agents/skills/live-browser/` and packages a copy with the CLI.
 
 Install it with:
 
 ```bash
-browser-bridge skill install --global
-browser-bridge skill install --project .
+live-browser skill install --global
+live-browser skill install --project .
 ```
 
 ## Development
 
-`browser-bridge` uses Bun for local development and npm for publish/auth checks.
+`live-browser` uses Bun for local development and npm for publish/auth checks.
 
 ```bash
 bun install
@@ -141,6 +122,7 @@ Useful validation commands:
 - `bun run smoke:managed`
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development workflow and [docs/architecture.md](docs/architecture.md) for the design notes.
+
 
 ## Security and community
 

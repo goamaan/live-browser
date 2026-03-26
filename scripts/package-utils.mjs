@@ -6,25 +6,16 @@ export const root = process.cwd();
 
 export const publicPackages = [
   {
-    name: '@goamaan/browser-bridge-core',
-    dir: path.join(root, 'packages', 'core'),
-    required: ['package/package.json', 'package/README.md', 'package/LICENSE', 'package/dist/index.js'],
-  },
-  {
-    name: '@goamaan/browser-bridge-sdk',
-    dir: path.join(root, 'packages', 'sdk'),
-    required: ['package/package.json', 'package/README.md', 'package/LICENSE', 'package/dist/index.js'],
-  },
-  {
-    name: '@goamaan/browser-bridge',
+    name: 'live-browser',
     dir: path.join(root, 'packages', 'cli'),
     required: [
       'package/package.json',
       'package/README.md',
       'package/LICENSE',
       'package/dist/index.js',
-      'package/skill/browser-bridge/SKILL.md',
-      'package/skill/browser-bridge/agents/openai.yaml',
+      'package/dist/sdk.js',
+      'package/skill/live-browser/SKILL.md',
+      'package/skill/live-browser/agents/openai.yaml',
     ],
   },
 ];

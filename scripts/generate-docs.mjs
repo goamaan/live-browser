@@ -12,11 +12,11 @@ if (!existsSync(cliPath)) {
 }
 
 const sections = [
-  ['browser-bridge --help', [cliPath, '--help']],
-  ['browser-bridge daemon --help', [cliPath, 'daemon', '--help']],
-  ['browser-bridge browsers --help', [cliPath, 'browsers', '--help']],
-  ['browser-bridge pages --help', [cliPath, 'pages', '--help']],
-  ['browser-bridge skill --help', [cliPath, 'skill', '--help']],
+  ['live-browser --help', [cliPath, '--help']],
+  ['live-browser daemon --help', [cliPath, 'daemon', '--help']],
+  ['live-browser browsers --help', [cliPath, 'browsers', '--help']],
+  ['live-browser pages --help', [cliPath, 'pages', '--help']],
+  ['live-browser skill --help', [cliPath, 'skill', '--help']],
 ];
 
 const rendered = sections
@@ -25,7 +25,7 @@ const rendered = sections
 
 const files = [
   path.join(root, 'docs', 'cli.md'),
-  path.join(root, '.agents', 'skills', 'browser-bridge', 'references', 'commands.md'),
+  path.join(root, '.agents', 'skills', 'live-browser', 'references', 'commands.md'),
 ];
 
 let changed = false;

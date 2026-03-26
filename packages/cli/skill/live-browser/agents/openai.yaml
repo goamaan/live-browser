@@ -1,0 +1,7 @@
+interface:
+  display_name: "Live Browser"
+  short_description: "Live Chrome browser automation"
+  default_prompt: "Use $live-browser to inspect or automate a live Chrome tab through live-browser."
+
+policy:
+  allow_implicit_invocation: true

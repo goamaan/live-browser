@@ -2,7 +2,7 @@
 
 ## Our pledge
 
-We want `browser-bridge` to be a welcoming and constructive project for everyone.
+We want `live-browser` to be a welcoming and constructive project for everyone.
 
 Contributors, maintainers, and community members are expected to act with respect, empathy, and professionalism.
 

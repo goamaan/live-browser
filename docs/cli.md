@@ -4,12 +4,12 @@ This file is generated from the compiled CLI help output so it stays aligned wit
 
 <!-- GENERATED:CLI-REFERENCE:START -->
 
-### browser-bridge --help
+### live-browser --help
 
 ```text
-Usage: browser-bridge [options] [command]
+Usage: live-browser [options] [command]
 
-Live-first AI browser bridge
+Live-first browser automation
 
 Options:
   -h, --help                               display help for command
@@ -37,14 +37,14 @@ Commands:
   network [options] <page>
   cdp [options] <page> <method> [json]
   run <scriptPath>                         Run a local JS or TS script that exports a default async function
-  skill                                    Work with the packaged browser-bridge skill
+  skill                                    Work with the packaged live-browser skill
   help [command]                           display help for command
 ```
 
-### browser-bridge daemon --help
+### live-browser daemon --help
 
 ```text
-Usage: browser-bridge daemon [options] [command]
+Usage: live-browser daemon [options] [command]
 
 Manage the local daemon
 
@@ -58,10 +58,10 @@ Commands:
   help [command]  display help for command
 ```
 
-### browser-bridge browsers --help
+### live-browser browsers --help
 
 ```text
-Usage: browser-bridge browsers [options] [command]
+Usage: live-browser browsers [options] [command]
 
 Attach or launch browsers
 
@@ -77,10 +77,10 @@ Commands:
   help [command]    display help for command
 ```
 
-### browser-bridge pages --help
+### live-browser pages --help
 
 ```text
-Usage: browser-bridge pages [options] [command]
+Usage: live-browser pages [options] [command]
 
 Manage pages
 
@@ -97,12 +97,12 @@ Commands:
   help [command]                  display help for command
 ```
 
-### browser-bridge skill --help
+### live-browser skill --help
 
 ```text
-Usage: browser-bridge skill [options] [command]
+Usage: live-browser skill [options] [command]
 
-Work with the packaged browser-bridge skill
+Work with the packaged live-browser skill
 
 Options:
   -h, --help         display help for command

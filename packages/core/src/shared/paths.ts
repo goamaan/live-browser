@@ -4,14 +4,14 @@ import { mkdirSync } from 'node:fs';
 
 function runtimeBaseDir(): string {
   if (process.platform === 'win32') {
-    return path.join(process.env.LOCALAPPDATA ?? path.join(os.homedir(), 'AppData', 'Local'), 'browser-bridge');
+    return path.join(process.env.LOCALAPPDATA ?? path.join(os.homedir(), 'AppData', 'Local'), 'live-browser');
   }
 
   if (process.env.XDG_RUNTIME_DIR) {
-    return path.join(process.env.XDG_RUNTIME_DIR, 'browser-bridge');
+    return path.join(process.env.XDG_RUNTIME_DIR, 'live-browser');
   }
 
-  return path.join(os.homedir(), '.cache', 'browser-bridge');
+  return path.join(os.homedir(), '.cache', 'live-browser');
 }
 
 export function ensureRuntimeDir(): string {
@@ -24,7 +24,7 @@ export function daemonSocketPath(): string {
   const dir = ensureRuntimeDir();
   if (process.platform === 'win32') {
     const user = (process.env.USERNAME ?? process.env.USER ?? 'user').replace(/[^A-Za-z0-9._-]/g, '-').toLowerCase();
-    return `\\\\.\\pipe\\browser-bridge-${user}`;
+    return `\\\\.\\pipe\\live-browser-${user}`;
   }
 
   return path.join(dir, 'daemon.sock');

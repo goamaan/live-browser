@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Contributor contract for `browser-bridge`.
+Contributor contract for `live-browser`.
 
 ## Product rules
 
@@ -19,14 +19,14 @@ Contributor contract for `browser-bridge`.
 ## Docs and skills
 
 - Update docs and the packaged skill in the same change when CLI or SDK behavior changes.
-- Keep `.agents/skills/browser-bridge/` as the source of truth.
+- Keep `.agents/skills/live-browser/` as the source of truth.
 - Run `bun run docs:generate` after changing CLI help text or command structure.
-- Run `bun run skill:sync` after changing anything under `.agents/skills/browser-bridge/`.
+- Run `bun run skill:sync` after changing anything under `.agents/skills/live-browser/`.
 - Prefer relative links in repo docs. Do not commit local absolute filesystem paths.
 
 ## Validation
 
-Run this full set for CLI, SDK, packaging, or skill changes:
+Run this full set for CLI, packaging, or skill changes:
 
 - `bun run build`
 - `bun run lint`

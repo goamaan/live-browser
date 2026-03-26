@@ -41,7 +41,7 @@ bun run smoke:managed
 - `packages/core`: transport, daemon, actions, snapshots, browser adapters
 - `packages/sdk`: JS/TS client wrapper
 - `packages/cli`: command surface and packaged skill payload
-- `.agents/skills/browser-bridge`: source skill
+- `.agents/skills/live-browser`: source skill
 - `docs/`: architecture and generated CLI docs
 
 ## Community expectations

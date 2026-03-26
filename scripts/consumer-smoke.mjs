@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { bunCommand, npmCommand, packPackage, publicPackages, run } from './package-utils.mjs';
 
-const tmpDir = mkdtempSync(path.join(os.tmpdir(), 'browser-bridge-consumer-'));
+const tmpDir = mkdtempSync(path.join(os.tmpdir(), 'live-browser-consumer-'));
 const tarballDir = path.join(tmpDir, 'tarballs');
 const bunProjectDir = path.join(tmpDir, 'bun-project');
 const npmProjectDir = path.join(tmpDir, 'npm-project');
@@ -24,60 +24,42 @@ try {
 }
 
 function smokeBunInstall(tarballs) {
-  const coreTarball = getTarball(tarballs, '@goamaan/browser-bridge-core');
-  const sdkTarball = getTarball(tarballs, '@goamaan/browser-bridge-sdk');
-  const cliTarball = getTarball(tarballs, '@goamaan/browser-bridge');
-  const coreDependency = toFileDependency(bunProjectDir, coreTarball);
-  const sdkDependency = toFileDependency(bunProjectDir, sdkTarball);
+  const cliTarball = getTarball(tarballs, 'live-browser');
   const cliDependency = toFileDependency(bunProjectDir, cliTarball);
 
   writeProjectManifest(bunProjectDir, 'consumer-bun-smoke', {
-    '@goamaan/browser-bridge-core': coreDependency,
-    '@goamaan/browser-bridge-sdk': sdkDependency,
-    '@goamaan/browser-bridge': cliDependency,
-  }, {
-    '@goamaan/browser-bridge-core': coreDependency,
-    '@goamaan/browser-bridge-sdk': sdkDependency,
+    'live-browser': cliDependency,
   });
 
   run(bunCommand(), ['install'], bunProjectDir, { stdio: 'inherit' });
-  const helpOutput = run(bunCommand(), ['x', 'browser-bridge', '--help'], bunProjectDir);
-  assert.match(helpOutput, /Usage: browser-bridge/);
+  const helpOutput = run(bunCommand(), ['x', 'live-browser', '--help'], bunProjectDir);
+  assert.match(helpOutput, /Usage: live-browser/);
 
   const skillBase = path.join(bunProjectDir, 'skill-output');
-  run(bunCommand(), ['x', 'browser-bridge', 'skill', 'install', '--project', skillBase], bunProjectDir, { stdio: 'inherit' });
-  assert.ok(existsSync(path.join(skillBase, '.agents', 'skills', 'browser-bridge', 'SKILL.md')));
+  run(bunCommand(), ['x', 'live-browser', 'skill', 'install', '--project', skillBase], bunProjectDir, { stdio: 'inherit' });
+  assert.ok(existsSync(path.join(skillBase, '.agents', 'skills', 'live-browser', 'SKILL.md')));
 }
 
 function smokeNpmInstall(tarballs) {
-  const coreTarball = getTarball(tarballs, '@goamaan/browser-bridge-core');
-  const sdkTarball = getTarball(tarballs, '@goamaan/browser-bridge-sdk');
-  const cliTarball = getTarball(tarballs, '@goamaan/browser-bridge');
-  const coreDependency = toFileDependency(npmProjectDir, coreTarball);
-  const sdkDependency = toFileDependency(npmProjectDir, sdkTarball);
+  const cliTarball = getTarball(tarballs, 'live-browser');
   const cliDependency = toFileDependency(npmProjectDir, cliTarball);
 
   writeProjectManifest(npmProjectDir, 'consumer-npm-smoke', {
-    '@goamaan/browser-bridge-core': coreDependency,
-    '@goamaan/browser-bridge-sdk': sdkDependency,
-    '@goamaan/browser-bridge': cliDependency,
-  }, {
-    '@goamaan/browser-bridge-core': coreDependency,
-    '@goamaan/browser-bridge-sdk': sdkDependency,
+    'live-browser': cliDependency,
   });
 
   run(npmCommand(), ['install'], npmProjectDir, { stdio: 'inherit' });
-  const helpOutput = run(npmCommand(), ['exec', '--', 'browser-bridge', '--help'], npmProjectDir);
-  assert.match(helpOutput, /Usage: browser-bridge/);
+  const helpOutput = run(npmCommand(), ['exec', '--', 'live-browser', '--help'], npmProjectDir);
+  assert.match(helpOutput, /Usage: live-browser/);
 
   const skillBase = path.join(npmProjectDir, 'skill-output');
-  run(npmCommand(), ['exec', '--', 'browser-bridge', 'skill', 'install', '--project', skillBase], npmProjectDir, {
+  run(npmCommand(), ['exec', '--', 'live-browser', 'skill', 'install', '--project', skillBase], npmProjectDir, {
     stdio: 'inherit',
   });
-  assert.ok(existsSync(path.join(skillBase, '.agents', 'skills', 'browser-bridge', 'SKILL.md')));
+  assert.ok(existsSync(path.join(skillBase, '.agents', 'skills', 'live-browser', 'SKILL.md')));
 }
 
-function writeProjectManifest(directory, name, dependencies = {}, overrides = {}) {
+function writeProjectManifest(directory, name, dependencies = {}) {
   mkdirSync(directory, { recursive: true });
   writeFileSync(
     path.join(directory, 'package.json'),
@@ -86,7 +68,6 @@ function writeProjectManifest(directory, name, dependencies = {}, overrides = {}
         name,
         private: true,
         dependencies,
-        overrides,
       },
       null,
       2,

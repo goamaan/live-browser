@@ -16,8 +16,8 @@
     "verbatimModuleSyntax": true,
     "baseUrl": ".",
     "paths": {
-      "@goamaan/browser-bridge-core": ["packages/core/src/index.ts"],
-      "@goamaan/browser-bridge-sdk": ["packages/sdk/src/index.ts"]
+      "live-browser-internal-core": ["packages/core/src/index.ts"],
+      "live-browser-internal-sdk": ["packages/sdk/src/index.ts"]
     }
   }
 }

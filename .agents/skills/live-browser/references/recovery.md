@@ -2,8 +2,8 @@
 
 ## Start here
 
-- Run `browser-bridge doctor --browser <browserId>` when the daemon, browser, or page mapping might be stale.
-- Use `browser-bridge pages resolve <ref> --browser <browserId>` before retrying a multi-step workflow if a tab may have been replaced.
+- Run `live-browser doctor --browser <browserId>` when the daemon, browser, or page mapping might be stale.
+- Use `live-browser pages resolve <ref> --browser <browserId>` before retrying a multi-step workflow if a tab may have been replaced.
 - Prefer aliases plus `pages warm` for tabs you will revisit repeatedly.
 
 ## Fault handling expectations

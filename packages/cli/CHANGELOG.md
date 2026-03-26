@@ -1,13 +1,9 @@
-# @goamaan/browser-bridge
+# live-browser
 
-## 0.2.0
+## 0.1.0
 
-### Minor Changes
+### Initial release
 
-- fdad408: Ship the initial public browser-bridge CLI, core transport, SDK, packaged skill, and release scaffolding.
-
-### Patch Changes
-
-- Updated dependencies [fdad408]
-  - @goamaan/browser-bridge-core@0.2.0
-  - @goamaan/browser-bridge-sdk@0.2.0
+- Ship the first unscoped `live-browser` CLI release.
+- Keep live Chrome attach on raw CDP with managed Chromium fallback.
+- Package the installable `live-browser` skill with the CLI.

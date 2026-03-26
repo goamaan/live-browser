@@ -1,29 +1,11 @@
 {
-  "name": "@goamaan/browser-bridge-sdk",
-  "version": "0.2.0",
-  "description": "JS and TypeScript SDK for browser-bridge",
+  "name": "live-browser-internal-sdk",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Internal SDK workspace package for live-browser",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/goamaan/browser-bridge.git"
-  },
-  "homepage": "https://github.com/goamaan/browser-bridge#readme",
-  "bugs": {
-    "url": "https://github.com/goamaan/browser-bridge/issues"
-  },
   "license": "MIT",
   "keywords": [
     "browser",
@@ -34,13 +16,10 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "tsc -b"
   },
   "dependencies": {
-    "@goamaan/browser-bridge-core": "0.2.0"
+    "live-browser-internal-core": "0.1.0"
   }
 }

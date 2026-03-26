@@ -1,7 +1,0 @@
-interface:
-  display_name: "Browser Bridge"
-  short_description: "Live Chrome browser automation"
-  default_prompt: "Use $browser-bridge to inspect or automate a live Chrome tab through browser-bridge."
-
-policy:
-  allow_implicit_invocation: true

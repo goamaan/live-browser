@@ -4,8 +4,8 @@ import path from 'node:path';
 
 const root = process.cwd();
 const checkOnly = process.argv.includes('--check');
-const sourceDir = path.join(root, '.agents', 'skills', 'browser-bridge');
-const targetDir = path.join(root, 'packages', 'cli', 'skill', 'browser-bridge');
+const sourceDir = path.join(root, '.agents', 'skills', 'live-browser');
+const targetDir = path.join(root, 'packages', 'cli', 'skill', 'live-browser');
 
 if (!existsSync(sourceDir)) {
   throw new Error(`Missing source skill directory: ${sourceDir}`);

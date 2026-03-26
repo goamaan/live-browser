@@ -622,7 +622,7 @@ export class LiveBrowserSession implements BrowserSessionAdapter {
         })),
       },
       suggestedNextSteps: [
-        'Run browser-bridge pages list --browser <browserId> to inspect open tabs.',
+        'Run live-browser pages list --browser <browserId> to inspect open tabs.',
         'Re-assign aliases after the browser creates new target ids.',
       ],
     });

@@ -276,12 +276,12 @@ function isNodeExecutable(path: string): boolean {
 function resolveDaemonEntry(): string {
   const currentFile = fileURLToPath(import.meta.url);
   const packageRoot = path.resolve(path.dirname(currentFile), '..', '..');
-  const compiledEntry = path.join(packageRoot, 'dist', 'bin', 'browser-bridge-daemon.js');
+  const compiledEntry = path.join(packageRoot, 'dist', 'bin', 'live-browser-daemon.js');
 
   if (!existsSync(compiledEntry)) {
     throw new BridgeError('DAEMON_ENTRY_MISSING', `Expected a built daemon entry at ${compiledEntry}.`, {
       recoverable: true,
-      hint: 'Build browser-bridge before using the SDK or CLI from a workspace checkout.',
+      hint: 'Build live-browser before using the workspace CLI checkout.',
       suggestedNextSteps: ['Run bun run build from the repository root.'],
       diagnostics: {
         packageRoot,

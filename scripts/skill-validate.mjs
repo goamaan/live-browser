@@ -4,7 +4,7 @@ import { existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
 const root = process.cwd();
-const target = path.join(root, '.agents', 'skills', 'browser-bridge');
+const target = path.join(root, '.agents', 'skills', 'live-browser');
 
 for (const candidate of commandCandidates()) {
   try {

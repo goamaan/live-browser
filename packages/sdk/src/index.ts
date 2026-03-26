@@ -11,7 +11,7 @@ import {
   type PageLike,
   type PageSummary,
   type SnapshotResult,
-} from '@goamaan/browser-bridge-core';
+} from 'live-browser-internal-core';
 
 export interface ConnectOptions {
   autoStart?: boolean;

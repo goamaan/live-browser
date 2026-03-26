@@ -1,10 +1,8 @@
 {
-  "name": "@goamaan/browser-bridge",
-  "version": "0.2.0",
-  "description": "CLI for browser-bridge live and managed browser automation",
+  "name": "live-browser",
+  "version": "0.1.0",
+  "description": "CLI for live-browser live and managed browser automation",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "skill",
@@ -12,16 +10,15 @@
     "LICENSE"
   ],
   "bin": {
-    "browser-bridge": "dist/index.js",
-    "bridge": "dist/index.js"
+    "live-browser": "dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goamaan/browser-bridge.git"
+    "url": "git+https://github.com/goamaan/live-browser.git"
   },
-  "homepage": "https://github.com/goamaan/browser-bridge#readme",
+  "homepage": "https://github.com/goamaan/live-browser#readme",
   "bugs": {
-    "url": "https://github.com/goamaan/browser-bridge/issues"
+    "url": "https://github.com/goamaan/live-browser/issues"
   },
   "license": "MIT",
   "keywords": [
@@ -41,8 +38,7 @@
     "build": "tsc -b"
   },
   "dependencies": {
-    "@goamaan/browser-bridge-core": "0.2.0",
-    "@goamaan/browser-bridge-sdk": "0.2.0",
-    "commander": "^13.1.0"
+    "commander": "^13.1.0",
+    "playwright": "^1.52.0"
   }
 }

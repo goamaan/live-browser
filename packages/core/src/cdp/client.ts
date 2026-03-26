@@ -62,7 +62,7 @@ export class CdpClient extends EventEmitter {
               },
               suggestedNextSteps: [
                 'Bring Chrome to the foreground and approve the remote debugging prompt.',
-                'Retry browser-bridge browsers attach after the browser grants access.',
+                'Retry live-browser browsers attach after the browser grants access.',
               ],
             }),
           );
