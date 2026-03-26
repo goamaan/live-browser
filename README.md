@@ -29,7 +29,7 @@ Existing browser tools tend to optimize for one of two paths:
 
 ```bash
 corepack pnpm install
-corepack pnpm exec playwright install chromium
+corepack pnpm --filter @browser-bridge/core exec playwright install chromium
 corepack pnpm build
 node ./packages/cli/dist/index.js daemon start
 node ./packages/cli/dist/index.js browsers attach --browser-id chrome

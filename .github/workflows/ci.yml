@@ -26,7 +26,7 @@ jobs:
         run: pnpm install --frozen-lockfile=false
 
       - name: Install Playwright Chromium
-        run: pnpm exec playwright install chromium
+        run: pnpm --filter @browser-bridge/core exec playwright install chromium
 
       - name: Lint
         run: pnpm lint
