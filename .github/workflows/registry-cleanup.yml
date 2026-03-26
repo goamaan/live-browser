@@ -32,8 +32,34 @@ jobs:
           )
 
           for pkg in "${packages[@]}"; do
+            if ! npm view "${pkg}" version >/dev/null 2>&1; then
+              echo "${pkg} is already gone."
+              continue
+            fi
+
+            version="$(npm view "${pkg}" version)"
             echo "Unpublishing ${pkg}"
-            npm unpublish "${pkg}" --force
+
+            success=false
+            for attempt in 1 2 3; do
+              if npm unpublish "${pkg}" --force; then
+                success=true
+                break
+              fi
+
+              if npm unpublish "${pkg}@${version}" --force; then
+                success=true
+                break
+              fi
+
+              echo "Attempt ${attempt} failed for ${pkg}; waiting for registry state to settle."
+              sleep 15
+            done
+
+            if [ "${success}" != "true" ]; then
+              echo "Failed to unpublish ${pkg}."
+              exit 1
+            fi
           done
 
       - name: Confirm removal
