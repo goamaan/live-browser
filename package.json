@@ -1,0 +1,26 @@
+{
+  "name": "browser-bridge-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Live-first AI browser bridge with raw CDP attach and Playwright-like ergonomics",
+  "packageManager": "pnpm@10.6.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "node ./scripts/clean.mjs",
+    "lint": "eslint .",
+    "smoke:managed": "node ./scripts/smoke-managed.mjs",
+    "test": "vitest run --config ./packages/core/vitest.config.ts",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.27.0",
+    "@typescript-eslint/parser": "^8.27.0",
+    "eslint": "^9.22.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}
