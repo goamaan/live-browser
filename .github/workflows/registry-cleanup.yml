@@ -1,0 +1,56 @@
+name: Registry Cleanup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unpublish-legacy-packages:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Verify npm auth
+        run: npm whoami
+
+      - name: Unpublish legacy scoped packages
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          packages=(
+            "@goamaan/browser-bridge"
+            "@goamaan/browser-bridge-core"
+            "@goamaan/browser-bridge-sdk"
+          )
+
+          for pkg in "${packages[@]}"; do
+            echo "Unpublishing ${pkg}"
+            npm unpublish "${pkg}" --force
+          done
+
+      - name: Confirm removal
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          packages=(
+            "@goamaan/browser-bridge"
+            "@goamaan/browser-bridge-core"
+            "@goamaan/browser-bridge-sdk"
+          )
+
+          for pkg in "${packages[@]}"; do
+            if npm view "${pkg}" version >/dev/null 2>&1; then
+              echo "${pkg} still exists on npm."
+              exit 1
+            fi
+            echo "${pkg} is gone."
+          done
